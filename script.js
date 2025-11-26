@@ -40,3 +40,18 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     });
   });
 });
+
+const loader = document.getElementById("loader");
+const MIN_TIME = 5000; // minimal 1 detik
+const start = Date.now();
+
+window.addEventListener("load", () => {
+  const elapsed = Date.now() - start;
+  const delay = Math.max(MIN_TIME - elapsed, 0);
+
+  setTimeout(() => {
+    loader.style.opacity = "0";
+    loader.style.transition = "3s";
+    setTimeout(() => (loader.style.display = "none"), 3000);
+  }, delay);
+});
