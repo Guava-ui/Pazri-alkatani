@@ -1,232 +1,1587 @@
-<!DOCTYPE html>
-<html lang="id">
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Pazri Alkatani</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pazri Alkatani — Full Stack Web Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Pazri Alkatani — Full Stack Web Developer & Computer Science Student. Explore projects, skills, certificates and digital products."
+    />
+    <meta
+      name="keywords"
+      content="Pazri Alkatani, Full Stack Developer, Web Developer, Portfolio, JavaScript, React, Next.js, Node.js"
+    />
+    <meta name="author" content="Pazri Alkatani" />
+    <link rel="canonical" href="https://pazri-alkatani.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Pazri Alkatani — Full Stack Web Developer"
+    />
+    <meta
+      property="og:description"
+      content="Modern portfolio of Pazri Alkatani. Projects, skills, certificates and digital products."
+    />
+    <meta property="og:image" content="/image/pp/Profile.png" />
+    <meta property="og:url" content="https://pazri-alkatani.vercel.app/" />
+    <link rel="icon" type="image/png" href="/image/pp/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="image/pp/favicon.ico" type="image/x-icon" />
+    <script data-arena-recording="true">
+      (function () {
+        "use strict";
+        var SK = "__arena_rec",
+          RRWEB_CDN =
+            "https://cdn.jsdelivr.net/npm/rrweb@2.0.0-alpha.4/dist/rrweb.min.js";
+        var MAX_RECORDING_MS = 600000,
+          MAX_RRWEB_EVENTS = 30000,
+          MAX_INTERACTIONS = 5000,
+          MAX_CURSOR_POINTS = 10000,
+          recStopped = false;
+        var stored = null;
+        try {
+          var raw = sessionStorage.getItem(SK);
+          if (raw) stored = JSON.parse(raw);
+        } catch (ex) {}
+        var meta = stored ? stored.m || null : null,
+          rrwebEvents = stored ? stored.r || [] : [],
+          rrwebStarted = false,
+          startTime = stored ? stored.st || Date.now() : Date.now();
+        var interactions = stored ? stored.i || [] : [],
+          cursorPath = stored ? stored.c || [] : [],
+          lastCursorSample = 0,
+          lastScrollSample = 0;
+        var pageHeight = document.documentElement.scrollHeight;
+        var viewport = { width: window.innerWidth, height: window.innerHeight };
+        function isCapped() {
+          if (recStopped) return true;
+          if (Date.now() - startTime >= MAX_RECORDING_MS) {
+            recStopped = true;
+            return true;
+          }
+          return false;
+        }
+        function persist() {
+          try {
+            var d = JSON.stringify({
+              r: rrwebEvents,
+              i: interactions,
+              c: cursorPath,
+              m: meta,
+              st: startTime,
+            });
+            sessionStorage.setItem(SK, d);
+          } catch (ex) {
+            rrwebEvents = rrwebEvents.slice(Math.floor(rrwebEvents.length / 2));
+            try {
+              sessionStorage.setItem(
+                SK,
+                JSON.stringify({
+                  r: rrwebEvents,
+                  i: interactions,
+                  c: cursorPath,
+                  m: meta,
+                  st: startTime,
+                }),
+              );
+            } catch (ex2) {}
+          }
+        }
+        setInterval(persist, 5000);
+        window.addEventListener("resize", function () {
+          viewport = { width: window.innerWidth, height: window.innerHeight };
+          pageHeight = document.documentElement.scrollHeight;
+        });
+        document.addEventListener(
+          "click",
+          function (e) {
+            if (isCapped() || interactions.length >= MAX_INTERACTIONS) return;
+            var el = e.target;
+            var tag = el.tagName ? el.tagName.toLowerCase() : "";
+            var text = (el.textContent || "").trim().substring(0, 80);
+            var classes =
+              el.className && typeof el.className === "string"
+                ? el.className.substring(0, 120)
+                : "";
+            interactions.push({
+              type: "click",
+              t: Date.now() - startTime,
+              x: Math.round(e.clientX),
+              y: Math.round(e.clientY),
+              element: { tag: tag, text: text, classes: classes },
+            });
+          },
+          true,
+        );
+        window.addEventListener(
+          "scroll",
+          function () {
+            if (isCapped() || interactions.length >= MAX_INTERACTIONS) return;
+            var now = Date.now();
+            if (now - lastScrollSample < 200) return;
+            lastScrollSample = now;
+            var scrollY = Math.round(window.scrollY || window.pageYOffset || 0);
+            var depthPct =
+              pageHeight > viewport.height
+                ? Math.min(
+                    100,
+                    Math.round(
+                      ((scrollY + viewport.height) / pageHeight) * 100,
+                    ),
+                  )
+                : 100;
+            interactions.push({
+              type: "scroll",
+              t: now - startTime,
+              y: scrollY,
+              depth_pct: depthPct,
+            });
+          },
+          { passive: true },
+        );
+        document.addEventListener(
+          "mousemove",
+          function (e) {
+            if (isCapped() || cursorPath.length >= MAX_CURSOR_POINTS) return;
+            var now = Date.now();
+            if (now - lastCursorSample < 250) return;
+            lastCursorSample = now;
+            cursorPath.push([
+              Math.round(e.clientX),
+              Math.round(e.clientY),
+              now - startTime,
+            ]);
+          },
+          { passive: true },
+        );
+        document.addEventListener(
+          "keydown",
+          function (e) {
+            if (isCapped() || interactions.length >= MAX_INTERACTIONS) return;
+            if (
+              e.target &&
+              (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")
+            )
+              return;
+            interactions.push({
+              type: "keydown",
+              t: Date.now() - startTime,
+              key: e.key,
+            });
+          },
+          true,
+        );
+        function buildAnalytics() {
+          if (!meta) return null;
+          var ph = document.documentElement.scrollHeight;
+          var maxScroll = 0,
+            clickElements = {},
+            firstClick = null,
+            firstScroll = null,
+            totalDistance = 0;
+          for (var i = 0; i < interactions.length; i++) {
+            var ev = interactions[i];
+            if (ev.type === "scroll") {
+              if (ev.depth_pct > maxScroll) maxScroll = ev.depth_pct;
+              if (!firstScroll) firstScroll = ev.t;
+            }
+            if (ev.type === "click") {
+              if (!firstClick) firstClick = ev.t;
+              var key = ev.element.tag + ":" + ev.element.text.substring(0, 30);
+              clickElements[key] = true;
+            }
+          }
+          for (var j = 1; j < cursorPath.length; j++) {
+            var dx = cursorPath[j][0] - cursorPath[j - 1][0];
+            var dy = cursorPath[j][1] - cursorPath[j - 1][1];
+            totalDistance += Math.sqrt(dx * dx + dy * dy);
+          }
+          var duration = Date.now() - startTime;
+          var clickHeatmap = [];
+          for (var k = 0; k < interactions.length; k++) {
+            if (interactions[k].type === "click")
+              clickHeatmap.push([interactions[k].x, interactions[k].y]);
+          }
+          return {
+            generation_id: meta.generationId,
+            tournament_id: meta.tournamentId,
+            started_at: new Date(startTime).toISOString(),
+            ended_at: new Date().toISOString(),
+            duration_ms: duration,
+            viewport: viewport,
+            page_height: ph,
+            interactions: interactions,
+            cursor_path: cursorPath,
+            click_heatmap: clickHeatmap,
+            summary: {
+              total_clicks: clickHeatmap.length,
+              total_scrolls: interactions.filter(function (e) {
+                return e.type === "scroll";
+              }).length,
+              max_scroll_depth_pct: maxScroll,
+              unique_elements_clicked: Object.keys(clickElements).length,
+              time_to_first_click_ms: firstClick,
+              time_to_first_scroll_ms: firstScroll,
+              cursor_distance_px: Math.round(totalDistance),
+              active_time_ms: duration,
+            },
+          };
+        }
+        function loadRrweb() {
+          if (rrwebStarted) return;
+          rrwebStarted = true;
+          var s = document.createElement("script");
+          s.src = RRWEB_CDN;
+          s.onload = function () {
+            var rec =
+              (window.rrweb && window.rrweb.record) || window.rrwebRecord;
+            if (!rec) return;
+            rec({
+              emit: function (event) {
+                if (rrwebEvents.length >= MAX_RRWEB_EVENTS || isCapped())
+                  return;
+                rrwebEvents.push(event);
+              },
+            });
+          };
+          s.onerror = function () {};
+          document.head.appendChild(s);
+        }
+        window.addEventListener("message", function (e) {
+          if (!e.data || typeof e.data.type !== "string") return;
+          if (e.data.type === "arena:init") {
+            if (!meta) startTime = Date.now();
+            meta = {
+              generationId: e.data.generationId || e.data.modelId,
+              tournamentId: e.data.tournamentId,
+            };
+            persist();
+            loadRrweb();
+            if (e.source)
+              e.source.postMessage(
+                { type: "arena:init-ack", generationId: meta.generationId },
+                "*",
+              );
+          }
+          if (e.data.type === "arena:flush") {
+            var resp = {
+              type: "arena:recording-data",
+              generationId: meta ? meta.generationId : null,
+              rrwebEvents: rrwebEvents,
+              analytics: buildAnalytics(),
+            };
+            try {
+              sessionStorage.removeItem(SK);
+            } catch (ex) {}
+            if (e.source) e.source.postMessage(resp, "*");
+          }
+        });
+        loadRrweb();
+      })();
+    </script>
+    <script data-arena-views="true">
+      (function () {
+        var isTop = false;
+        try {
+          isTop = window.self === window.top;
+        } catch (e) {}
+        if (!isTop) return;
+        window.__ARENA_META = {
+          generationId: "claude-fable-5",
+          tournamentId: "202ae17a-f05e-434f-bcb1-e1865d0ada38",
+        };
+        var payload = {
+          tournamentId: "202ae17a-f05e-434f-bcb1-e1865d0ada38",
+          modelId: "claude-fable-5",
+        };
+        try {
+          var r = document.referrer;
+          if (r) {
+            var u = new URL(r);
+            payload.referrerDomain = u.hostname;
+          }
+        } catch (e) {}
+        try {
+          var vid = null;
+          try {
+            vid = localStorage.getItem("arena_vid");
+          } catch (e) {}
+          if (!vid) {
+            vid =
+              typeof crypto !== "undefined" && crypto.randomUUID
+                ? crypto.randomUUID()
+                : (
+                    Date.now().toString(36) +
+                    Math.random().toString(36).slice(2)
+                  ).slice(0, 32);
+            try {
+              localStorage.setItem("arena_vid", vid);
+            } catch (e) {}
+          }
+          if (vid) payload.viewerId = vid;
+        } catch (e) {}
+        try {
+          fetch("https://www.designarena.ai/api/agon/page-views", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+            keepalive: true,
+          });
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
-    <header>
-      <div class="nav-inner">
-        <div class="brand">
-          <h1>Pazri<span> Alkatani</span></h1>
-          <img src="loop.gif" alt="gif" class="brand-gif" />
-        </div>
-        <nav>
-          <ul>
-            <li><a href="#" class="active">Beranda</a></li>
-            <li><a href="#about">Tentang Saya</a></li>
-            <li><a href="#projects">Projek</a></li>
-            <li><a href="#product">Produk</a></li>
-            <li><a href="#contact">Kontak Saya</a></li>
-          </ul>
-        </nav>
-      </div>
+    <!-- ===== Loading Screen ===== -->
+    <div class="loader" id="loader" aria-hidden="true">
+      <img src="/image/pp/logo.png" alt="Logo Loader" class="loader__mark">
+      <div class="loader__bar"><span></span></div>
+    </div>
+
+    <!-- ===== Navbar ===== -->
+    <header class="navbar" id="navbar">
+      <nav class="navbar__inner container" aria-label="Main navigation">
+        <a href="#home" class="navbar__logo">
+          <img src="/image/pp/logo.png" alt="Logo" class="navbar__logo-mark">
+          <span class="navbar__logo-text">Pazri<span> Alkatani</span></span>
+        </a>
+        <ul class="navbar__menu" id="navMenu">
+          <li><a href="#home" class="navbar__link is-active">Home</a></li>
+          <li><a href="#about" class="navbar__link">About</a></li>
+          <li><a href="#skills" class="navbar__link">Skills</a></li>
+          <li><a href="#projects" class="navbar__link">Projects</a></li>
+          <li><a href="#certificates" class="navbar__link">Certificates</a></li>
+          <li><a href="#products" class="navbar__link">Products</a></li>
+          <li>
+            <a href="#contact" class="navbar__link navbar__link--cta"
+              >Contact</a
+            >
+          </li>
+        </ul>
+        <button
+          class="navbar__burger"
+          id="navBurger"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
     </header>
 
-    <main class="wrap">
-      <section class="hero" id="home">
-        <div class="hero-left">
-          <p style="color: var(--neon); font-weight: 600; margin: 0 0 8px 0">
-            Hi, I'm <span style="color: var(--neon)">Pazri Alkatani</span>
-          </p>
-          <h1>I'm a <span class="glitch" data-text="Webdev" style="color: var(--neon)">Webdev</span></h1>
-          <p class="lead">
-            Seorang developer yang passionate dalam menciptakan solusi digital
-            inovatif. Dengan pengalaman dalam web development dan UI design,
-            saya siap membantu mewujudkan ide Anda menjadi kenyataan.
-          </p>
-          <div class="buttons">
-            <a class="btn btn-primary" href="#projects">Lihat Project</a>
-            <a class="btn" href="#contact">Hubungi Saya</a>
+    <main>
+      <!-- ===== Hero ===== -->
+      <section class="hero section" id="home">
+        <div class="hero__bg" aria-hidden="true">
+          <span class="hero__blob hero__blob--1" data-parallax="0.35"></span>
+          <span class="hero__blob hero__blob--2" data-parallax="0.2"></span>
+          <span class="hero__grid"></span>
+        </div>
+        <div class="container hero__inner">
+          <div class="hero__content" data-reveal="fade-right">
+            <p class="hero__eyebrow">
+              <span class="hero__dot"></span> Available for freelance work
+            </p>
+            <h1 class="hero__title">
+              Hi, I'm <span class="text-gradient">Pazri Alkatani</span>
+            </h1>
+            <p class="hero__role">
+              <span class="hero__typed" id="typed"></span
+              ><span class="hero__caret" aria-hidden="true"></span>
+            </p>
+            <p class="hero__desc">
+              I build fast, clean and useful web applications — from
+              pixel-perfect interfaces to reliable back-end APIs. Focused on
+              JavaScript, React, Next.js and Node.js.
+            </p>
+            <div class="hero__actions">
+              <a href="#projects" class="btn btn--primary" data-ripple
+                >View Projects
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+              <a
+                href="/CV/MyCV.pdf"
+                download
+                class="btn btn--ghost"
+                data-ripple
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
+                </svg>
+                Download CV
+              </a>
+            </div>
+            <div class="hero__socials">
+              <a
+                href="https://github.com/Guava-ui"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/pazri-alkatani-75a1882ba/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M4.98 3.5A2.49 2.49 0 1 1 0 3.5a2.49 2.49 0 0 1 4.98 0zM.4 8.4h4.6V24H.4V8.4zM8.4 8.4h4.4v2.13h.06c.61-1.16 2.11-2.38 4.35-2.38 4.65 0 5.51 3.06 5.51 7.04V24h-4.6v-7.72c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.07V24H8.4V8.4z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://www.instagram.com/alkatani.pazri/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+                  <circle cx="12" cy="12" r="4.5" />
+                  <circle
+                    cx="17.6"
+                    cy="6.4"
+                    r="1.3"
+                    fill="currentColor"
+                    stroke="none"
+                  />
+                </svg>
+              </a>
+              <a href="mailto:pazrialkatani8@gmail.com" aria-label="Email">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2.5" y="4.5" width="19" height="15" rx="3" />
+                  <path d="m3.5 6.5 8.5 6.5 8.5-6.5" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="hero__visual"
+            data-reveal="fade-left"
+            data-parallax="0.12"
+          >
+            <div class="hero__photo-wrap">
+              <img
+                src="/image/pp/Profile.png"
+                alt="Pazri Alkatani — Full Stack Web Developer"
+                class="hero__photo"
+                width="420"
+                height="500"
+                fetchpriority="high"
+              />
+              <div class="hero__badge hero__badge--stack glass">
+                <span class="hero__badge-icon">💡</span>
+                <div>
+                  <strong>Full Stack</strong><small>React &amp; Next.js</small>
+                </div>
+              </div>
+              <div class="hero__badge hero__badge--exp glass">
+                <span class="hero__badge-icon">🎓</span>
+                <div>
+                  <strong>Student</strong><small>Computer Science</small>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="avatar-wrap">
-          <div class="avatar" aria-hidden="true">
-            <img src="image/pp/Profile.png" alt="avatar" />
-          </div>
-        </div>
+        <a href="#about" class="hero__scroll" aria-label="Scroll to About">
+          <span class="hero__mouse"><span></span></span>
+        </a>
       </section>
 
+      <!-- ===== About ===== -->
       <section class="section" id="about">
-        <h2>Tentang Saya</h2>
-        <div class="about">
-          <div class="avatar-small">
-            <img src="image/pp/Profile.png" alt="avatar" />
-          </div>
-          <div>
-            <h3 style="margin-top: 0; color: var(--neon)">
-              Hello, I'm Pazri Alkatani
-            </h3>
-            <p>
-              Saya seorang Mahasiswa di Universitas Pamulang, <br />
-              saya berkuliah Jurusan Ilmu Komputer Prodi Teknik Informatika.
+        <div class="container">
+          <div class="section__head" data-reveal="fade-up">
+            <span class="section__tag">About Me</span>
+            <h2 class="section__title">
+              A developer who loves
+              <span class="text-gradient">building things</span>
+            </h2>
+            <p class="section__sub">
+              Get to know a little bit about who I am and what I do.
             </p>
-            <blockquote
-              style="
-                border-left: 3px solid var(--neon);
-                padding-left: 12px;
-                margin-top: 18px;
-                color: var(--muted);
-                font-style: italic;
-              "
-            >
-              "Jangan pernah berharap kepada manusia."
-            </blockquote>
-            <div style="margin-top: 14px">
-
-              <a class="btn btn-primary" href="CV/MyCV.pdf" download="CV Pazri Alkatani">Unduh CV</a>
-              <a class="btn" href="#projects">Lihat Proyek</a>
+          </div>
+          <div class="about__grid">
+            <article class="card about__card" data-reveal="fade-right">
+              <h3 class="about__heading">Hello there</h3>
+              <p>
+                I'm <strong>Pazri Alkatani</strong>, a Full Stack Web Developer
+                and Computer Science student who is passionate about turning
+                ideas into real, working products. I started my coding journey
+                by building simple landing pages — and quickly fell in love with
+                the entire process of crafting web applications from front to
+                back.
+              </p>
+              <p>
+                On the front-end I work with
+                <strong>HTML, CSS, JavaScript, React and Next.js</strong> to
+                create clean, responsive and accessible interfaces. On the
+                back-end I build robust APIs with
+                <strong>Node.js, Express, MongoDB and MySQL</strong>.
+              </p>
+              <p>
+                Outside of coding, I enjoy learning new things, contributing to
+                projects like books, and sharing what I learn with the developer
+                community.
+              </p>
+              <ul class="about__facts">
+                <li>- Based in Indonesia</li>
+                <li>- Open to freelance &amp; internship</li>
+                <li>- Currently exploring TypeScript &amp; DevOps</li>
+              </ul>
+            </article>
+            <div class="about__stats" data-reveal="fade-left">
+              <div class="card stat-card">
+                <span class="stat-card__num"
+                  ><span data-counter="3">0</span>+</span
+                >
+                <span class="stat-card__label">Projects Completed</span>
+              </div>
+              <div class="card stat-card">
+                <span class="stat-card__num"
+                  ><span data-counter="2">0</span></span
+                >
+                <span class="stat-card__label">Certificates Earned</span>
+              </div>
+              <div class="card stat-card">
+                <span class="stat-card__num"
+                  ><span data-counter="12">0</span>+</span
+                >
+                <span class="stat-card__label">Technologies Used</span>
+              </div>
+              <div class="card stat-card">
+                <span class="stat-card__num"
+                  ><span data-counter="2">0</span>+</span
+                >
+                <span class="stat-card__label">Years of Coding</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- ===== Skills ===== -->
+      <section class="section section--alt" id="skills">
+        <div class="container">
+          <div class="section__head" data-reveal="fade-up">
+            <span class="section__tag">Skills</span>
+            <h2 class="section__title">
+              Technologies I <span class="text-gradient">work with</span>
+            </h2>
+            <p class="section__sub">
+              Tools and technologies I use to bring products to life.
+            </p>
+          </div>
+          <div class="skills__grid" id="skillsGrid">
+            <div class="card skill-card" data-reveal="scale">
+              <span class="skill-card__icon" style="--sc: #e44d26"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M3 2h18l-1.6 18L12 22l-7.4-2L3 2zm14.6 5H8.2l.2 2.5h9L16.7 17l-4.7 1.3L7.3 17l-.3-3h2.3l.15 1.5 2.55.7 2.55-.7.3-3.2H6.9L6.3 5h11.5l-.2 2z"
+                  /></svg></span
+              ><span class="skill-card__name">HTML</span
+              ><span class="skill-card__level">Markup</span>
+            </div>
+            <div class="card skill-card" data-reveal="scale">
+              <span class="skill-card__icon" style="--sc: #1572b6"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M3 2h18l-1.6 18L12 22l-7.4-2L3 2zm14.2 5H7l.2 2.3h7.4l-.3 3.2H9.5l.2 2.3h4.4l-.25 2.5-2.35.65-2.35-.65-.15-1.6H6.7l.3 3.2 5 1.4 5-1.4.7-7.55H9.4L9.2 9.3h8L17.2 7z"
+                  /></svg></span
+              ><span class="skill-card__name">CSS</span
+              ><span class="skill-card__level">Styling</span>
+            </div>
+            <div class="card skill-card" data-reveal="scale">
+              <span
+                class="skill-card__icon"
+                style="--sc: #f7df1e; --st: #0f172a"
+                ><svg viewBox="0 0 24 24">
+                  <rect width="24" height="24" rx="4" fill="currentColor" />
+                  <text
+                    x="12"
+                    y="17"
+                    text-anchor="middle"
+                    font-size="11"
+                    font-weight="800"
+                    font-family="Inter,Arial"
+                    fill="var(--st,#0F172A)"
+                  >
+                    JS
+                  </text>
+                </svg></span
+              ><span class="skill-card__name">JavaScript</span
+              ><span class="skill-card__level">ES6+</span>
+            </div>
+            <div class="card skill-card" data-reveal="scale">
+              <span class="skill-card__icon" style="--sc: #61dafb"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="2"
+                    fill="currentColor"
+                    stroke="none"
+                  />
+                  <ellipse cx="12" cy="12" rx="10" ry="4" />
+                  <ellipse
+                    cx="12"
+                    cy="12"
+                    rx="10"
+                    ry="4"
+                    transform="rotate(60 12 12)"
+                  />
+                  <ellipse
+                    cx="12"
+                    cy="12"
+                    rx="10"
+                    ry="4"
+                    transform="rotate(120 12 12)"
+                  /></svg></span
+              ><span class="skill-card__name">React</span
+              ><span class="skill-card__level">Library</span>
+            </div>
+            <div class="card skill-card" data-reveal="scale">
+              <span class="skill-card__icon" style="--sc: #0f172a"
+                ><svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="11" fill="currentColor" />
+                  <path
+                    d="M9 8v8M9 8l7 9.5M16 8v6"
+                    stroke="#fff"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  /></svg></span
+              ><span class="skill-card__name">Next.js</span
+              ><span class="skill-card__level">Framework</span>
+            </div>
+            <div class="card skill-card" data-reveal="scale">
+              <span class="skill-card__icon" style="--sc: #339933"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 1.8 3 7v10l9 5.2L21 17V7l-9-5.2zm0 2.3L19 8.2v7.6L12 19.9 5 15.8V8.2l7-4.1z"
+                  />
+                  <path
+                    d="M12 6.5 7.3 9.2v5.6L12 17.5l4.7-2.7V9.2L12 6.5z"
+                    opacity=".55"
+                  /></svg></span
+              ><span class="skill-card__name">Node.js</span
+              ><span class="skill-card__level">Runtime</span>
+            </div>
+            <div class="card skill-card" data-reveal="scale">
+              <span class="skill-card__icon" style="--sc: #475569"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <path d="M3 12h13M3 6h18M3 18h18" />
+                  <path d="m14 9 4 3-4 3" fill="none" /></svg></span
+              ><span class="skill-card__name">Express</span
+              ><span class="skill-card__level">Back-End</span>
+            </div>
+            <div class="card skill-card" data-reveal="scale">
+              <span class="skill-card__icon" style="--sc: #47a248"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 1.5c.4 3 1.8 4.5 3.6 6.8 2 2.5 3 5 2.3 8.1-.6 2.5-2.5 4.4-4.9 5.4l-.4 1.7h-1.2l-.4-1.7c-2.4-1-4.3-2.9-4.9-5.4-.7-3.1.3-5.6 2.3-8.1 1.8-2.3 3.2-3.8 3.6-6.8z"
+                  />
+                  <path
+                    d="M12 5v16"
+                    stroke="#fff"
+                    stroke-width="1"
+                    opacity=".7"
+                  /></svg></span
+              ><span class="skill-card__name">MongoDB</span
+              ><span class="skill-card__level">Database</span>
+            </div>
+            <div class="card skill-card" data-reveal="scale">
+              <span class="skill-card__icon" style="--sc: #00758f"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <ellipse cx="12" cy="6" rx="8" ry="3" />
+                  <path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6" />
+                  <path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" /></svg></span
+              ><span class="skill-card__name">MySQL</span
+              ><span class="skill-card__level">Database</span>
+            </div>
+            <div class="card skill-card" data-reveal="scale">
+              <span class="skill-card__icon" style="--sc: #7952b3"
+                ><svg viewBox="0 0 24 24">
+                  <rect
+                    x="2"
+                    y="2"
+                    width="20"
+                    height="20"
+                    rx="5"
+                    fill="currentColor"
+                  />
+                  <text
+                    x="12"
+                    y="17"
+                    text-anchor="middle"
+                    font-size="12"
+                    font-weight="800"
+                    font-family="Inter,Arial"
+                    fill="#fff"
+                  >
+                    B
+                  </text>
+                </svg></span
+              ><span class="skill-card__name">Bootstrap</span
+              ><span class="skill-card__level">UI Toolkit</span>
+            </div>
+            <div class="card skill-card" data-reveal="scale">
+              <span class="skill-card__icon" style="--sc: #f05032"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <circle cx="6" cy="6" r="2.5" />
+                  <circle cx="6" cy="18" r="2.5" />
+                  <circle cx="18" cy="10" r="2.5" />
+                  <path
+                    d="M6 8.5v7M8 7l7.8 2.2M18 12.5c0 3-4 3.5-9 3.5"
+                  /></svg></span
+              ><span class="skill-card__name">Git</span
+              ><span class="skill-card__level">Version Control</span>
+            </div>
+            <div class="card skill-card" data-reveal="scale">
+              <span class="skill-card__icon" style="--sc: #0f172a"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"
+                  /></svg></span
+              ><span class="skill-card__name">GitHub</span
+              ><span class="skill-card__level">Collaboration</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Projects ===== -->
       <section class="section" id="projects">
-        <h2>Project</h2>
-        <div class="project-grid">
-          <div class="project-card">
-            <h3>Bakmie Seafood 99</h3>
-            <img src="image/projek/BS99.jpg" alt="Bakmie Seafood 99" />
-            <p>Kunjungi</p>
-            <a href="https://bakmie-seafood-99.vercel.app/" target="_blank"
-              >bakmie-seafood-99.vercel.app</a
-            >
+        <div class="container">
+          <div class="section__head" data-reveal="fade-up">
+            <span class="section__tag">Projects</span>
+            <h2 class="section__title">
+              Things I've <span class="text-gradient">built</span>
+            </h2>
+            <p class="section__sub">
+              A selection of projects from my portfolio — front-end, back-end
+              and full stack.
+            </p>
           </div>
-        </div>
-        <div class="project-grid">
-          <div class="project-card">
-            <h3>Music Player</h3>
-            <img src="image/projek/Music.jpg" alt="Music Player" />
-            <p>Kunjungi</p>
-            <a href="https://music-player-ten-jet.vercel.app/" target="_blank"
-              >music-player-ten-jet.vercel.app</a
-            >
+          <div class="projects__grid">
+            <article class="card project-card" data-reveal="fade-up">
+              <div class="project-card__thumb">
+                <img
+                  src="/image/projek/BS99.jpg"
+                  alt="E-Commerce Web App thumbnail"
+                  loading="lazy"
+                  width="640"
+                  height="400"
+                />
+                <span class="project-card__type">Full Stack</span>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">E-Commerce Web App</h3>
+                <p class="project-card__desc">
+                  A modern online store with product catalog, cart, checkout and
+                  Midtrans payment integration. Includes an admin panel for
+                  managing products and orders.
+                </p>
+                <ul class="project-card__stack">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>MongoDB</li>
+                </ul>
+                <div class="project-card__actions">
+                  <a
+                    href="https://bakmie-seafood-99.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn--sm btn--primary"
+                    data-ripple
+                    >Live Demo</a
+                  >
+                  <a
+                    href="https://github.com/Guava-ui/BS99"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn--sm btn--ghost"
+                    data-ripple
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="card project-card" data-reveal="fade-up">
+              <div class="project-card__thumb">
+                <img
+                  src="/image/projek/Music.jpg"
+                  alt="Admin Analytics Dashboard thumbnail"
+                  loading="lazy"
+                  width="640"
+                  height="400"
+                />
+                <span class="project-card__type">Frontend</span>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">Music Player</h3>
+                <p class="project-card__desc">
+                  With an interactive and minimalist website, here you can
+                  listen to the music you like.
+                </p>
+                <ul class="project-card__stack">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                </ul>
+                <div class="project-card__actions">
+                  <a
+                    href="https://music-player-ten-jet.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn--sm btn--primary"
+                    data-ripple
+                    >Live Demo</a
+                  >
+                  <a
+                    href="https://github.com/Guava-ui/MusicPlayer"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn--sm btn--ghost"
+                    data-ripple
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- Produk -->
-      <section class="section" id="product">
-        <h2>Alkatani Store</h2>
-        <p>
-          Tempatnya Novel-novel <br />
-          dengan berbagai Genre
-        </p>
-        <div class="services-grid">
-          <div class="service-card highlight">
-            <img src="image/produk/Produk1.jpeg" alt="Bayang-bayang masalalu" />
-            <h3>Bayang-bayang masalalu</h3>
-            <p>IDR. 38.900</p>
-            <a href="https://lynk.id/alkatani/6wx8ozk28d3x" target="_blank"
-              >Buy Now</a
+      <!-- ===== Certificates ===== -->
+      <section class="section section--alt" id="certificates">
+        <div class="container">
+          <div class="section__head" data-reveal="fade-up">
+            <span class="section__tag">Certificates</span>
+            <h2 class="section__title">
+              Learning never <span class="text-gradient">stops</span>
+            </h2>
+            <p class="section__sub">
+              Certifications I've earned along my learning journey. Click a
+              certificate to preview.
+            </p>
+          </div>
+        </div>
+        <div class="certs" data-reveal="fade-up">
+          <div class="certs__viewport" id="certsViewport">
+            <div class="certs__track" id="certsTrack">
+              <article class="card cert-card">
+                <button
+                  class="cert-card__img"
+                  data-cert="/assets/Cyber.png"
+                  data-title="Introduction to Information Security Course"
+                  aria-label="Preview certificate: Introduction to Information"
+                >
+                  <img
+                    src="/assets/Cyber.png"
+                    alt="Introduction to Information Security Course"
+                    loading="lazy"
+                    width="400"
+                    height="280"
+                  />
+                </button>
+                <div class="cert-card__body">
+                  <h3>Introduction to Information Security Course</h3>
+                  <p>Cyber Academy Indonesia</p>
+                  <span>2024</span>
+                </div>
+              </article>
+              <article class="card cert-card">
+                <button
+                  class="cert-card__img"
+                  data-cert="/assets/Olymnus.png"
+                  data-title="2025 Indonesian Social Sciences Olympiad"
+                  aria-label="Preview certificate: Social Sciences Olympiad"
+                >
+                  <img
+                    src="/assets/Olymnus.png"
+                    alt="2025 Indonesian Social Sciences Olympiad"
+                    loading="lazy"
+                    width="400"
+                    height="280"
+                  />
+                </button>
+                <div class="cert-card__body">
+                  <h3>2025 Indonesian Social Sciences Olympiad</h3>
+                  <p>Lembaga Bina Prestasi Nusantara</p>
+                  <span>2025</span>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="certs__controls container">
+            <button
+              class="certs__btn"
+              id="certPrev"
+              aria-label="Previous certificate"
             >
-          </div>
-
-          <div class="service-card highlight">
-            <img src="image/produk/Produk2.jpg" alt="3 Cinta" />
-            <h3>3 Cinta</h3>
-            <p>IDR. 59.999</p>
-            <a href="https://lynk.id/alkatani/w386z110gz03" target="_blank"
-              >Buy Now</a
-            >
-          </div>
-
-          <div class="service-card highlight">
-            <img
-              src="image/produk/Produk3.png"
-              alt="Semua tentangmu tak pernah selesai aku tuliskan"
-            />
-            <h3>Semua tentangmu tak pernah selesai aku tuliskan</h3>
-            <p>IDR. 35.999</p>
-            <a href="https://lynk.id/alkatani/nqmgwyg6jpgp" target="_blank"
-              >Buy Now</a
-            >
-          </div>
-
-          <div class="service-card highlight">
-            <img
-              src="image/produk/Produk4.png"
-              alt="963 Hari mengenalmu"
-            />
-            <h3>963 Hari mengenalmu</h3>
-            <p>IDR. 49.999</p>
-            <a href="http://lynk.id/alkatani/p12pjy82e05y" target="_blank"
-              >Buy Now</a
-            >
-          </div>
-
-          <div class="service-card highlight">
-            <img src="image/produk/Coming.jpg" alt="Coming Soon" />
-            <h3>Coming Soon</h3>
-            <p>Not Found</p>
-            <a href="/blank.html" target="_blank">Don't click</a>
-          </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section class="section" id="contact">
-        <h2>Kontak Saya</h2>
-        <div class="contact-grid">
-          <div class="contact-left">
-            <p>Email: pazriunpam@gmail.com<br />
-            Telepon: +62 831 3470 8667<br />
-            Alamat: Tangerang Selatan, Indonesia</p>
-          </div>
-
-          <form class="form" id="contactForm" onsubmit="return false;">
-            <input class="input" id="name" placeholder="Nama Anda" required />
-            <input
-              class="input"
-              id="email"
-              type="email"
-              placeholder="Email Anda"
-              required
-            />
-            <textarea
-              class="input textarea"
-              id="message"
-              placeholder="Pesan Anda"
-              required
-            ></textarea>
-            <button class="btn-send" id="sendBtn" type="submit">
-              Kirim Pesan
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M19 12H5m6-6-6 6 6 6" />
+              </svg>
             </button>
-            <small
-              id="formStatus"
-              style="color: var(--muted); display: block; margin-top: 8px"
-            ></small>
-          </form>
+            <p class="certs__hint">
+              Auto-sliding · hover to pause · drag to explore
+            </p>
+            <button
+              class="certs__btn"
+              id="certNext"
+              aria-label="Next certificate"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14m-6-6 6 6-6 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Products ===== -->
+      <section class="section" id="products">
+        <div class="container">
+          <div class="section__head" data-reveal="fade-up">
+            <span class="section__tag">Products</span>
+            <h2 class="section__title">
+              Digital <span class="text-gradient">products</span>
+            </h2>
+            <p class="section__sub">
+              Templates and e-books that I have created and sold online.
+            </p>
+          </div>
+          <div class="products__grid">
+            <article class="card product-card" data-reveal="fade-up">
+              <div class="product-card__thumb">
+                <img
+                  src="/image/produk/Produk4.png"
+                  alt="Novel 963 Hari Mengenalmu"
+                  loading="lazy"
+                  width="640"
+                  height="400"
+                />
+                <span class="badge badge--best">Best Seller</span>
+              </div>
+              <div class="product-card__body">
+                <h3>Ebook: Novel 963 Hari Mengenalmu</h3>
+                <p>
+                  963 Days: Getting to Know You is a poetic romance novel by
+                  Raden Pazri that chronicles Reynand and Rachel's journey over
+                  963 days, from high school to adulthood. A story of
+                  encounters, love, distance, longing, and dreams that grow over
+                  time.
+                </p>
+                <div class="product-card__foot">
+                  <span class="product-card__price">Rp 49.999</span>
+                  <a
+                    href="http://lynk.id/alkatani/p12pjy82e05y"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn--sm btn--primary"
+                    data-ripple
+                    >Buy Now</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article class="card product-card" data-reveal="fade-up">
+              <div class="product-card__thumb">
+                <img
+                  src="/image/produk/Produk3.png"
+                  alt="Semua tentangmu tak pernah selesai aku tuliskan: Untuk kamu yang perginya masih aku tanyakan pada hati"
+                  loading="lazy"
+                  width="640"
+                  height="400"
+                />
+                <span class="badge badge--new">New</span>
+              </div>
+              <div class="product-card__body">
+                <h3>
+                  Semua tentangmu tak pernah selesai aku tuliskan: Untuk kamu
+                  yang perginya masih aku tanyakan pada hati
+                </h3>
+                <p>
+                  We are the past now it's just you and me, I still remember
+                  you, remembering all our memories I don't know if you are the
+                  same as me? What is clear is that I have written everything
+                  about you in a Poetry Book even though it was never finished.
+                </p>
+                <div class="product-card__foot">
+                  <span class="product-card__price">Rp 35.999</span>
+                  <a
+                    href="http://lynk.id/alkatani/nqmgwyg6jpgp"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn--sm btn--primary"
+                    data-ripple
+                    >Buy Now</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article class="card product-card" data-reveal="fade-up">
+              <div class="product-card__thumb">
+                <img
+                  src="/image/produk/Produk1.jpeg"
+                  alt="Novel Bayang-Bayang Masalalu"
+                  loading="lazy"
+                  width="640"
+                  height="400"
+                />
+                <span class="badge badge--digital">Digital Product</span>
+              </div>
+              <div class="product-card__body">
+                <h3>Ebook: Novel Bayang-Bayang Masalalu</h3>
+                <p>
+                  The novel entitled Shadows of the Past aims to entertain
+                  readers and make them feel it while reading it. This novel can
+                  be read by both men and women.
+                </p>
+                <div class="product-card__foot">
+                  <span class="product-card__price">Rp 38.900</span>
+                  <a
+                    href="http://lynk.id/alkatani/6wx8ozk28d3x"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn--sm btn--primary"
+                    data-ripple
+                    >Buy Now</a
+                  >
+                </div>
+              </div>
+            </article>
+            </article>
+            <article class="card product-card" data-reveal="fade-up">
+              <div class="product-card__thumb">
+                <img
+                  src="/image/produk/Produk2.jpg"
+                  alt="3 CINTA: 3 Rasa, 3 Cerita Dari Luka Pertama Hingga Rumah Terakhir"
+                  loading="lazy"
+                  width="640"
+                  height="400"
+                />
+                <span class="badge badge--digital">Digital Product</span>
+              </div>
+              <div class="product-card__body">
+                <h3>3 CINTA: 3 Rasa, 3 Cerita Dari Luka Pertama Hingga Rumah Terakhir</h3>
+                <p>
+                  The novel entitled 3 LOVE aims to entertain readers and make them feel the experience of reading it. This novel can be read by both women and men.
+                </p>
+                <div class="product-card__foot">
+                  <span class="product-card__price">Rp 59.999</span>
+                  <a
+                    href="http://lynk.id/alkatani/w386z110gz03"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn--sm btn--primary"
+                    data-ripple
+                    >Buy Now</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article class="card product-card" data-reveal="fade-up">
+              <div class="product-card__thumb">
+                <img
+                  src="/image/produk/Coming.jpg"
+                  alt="Coming Soon"
+                  loading="lazy"
+                  width="640"
+                  height="400"
+                />
+                <span class="badge badge--digital">Coming Soon</span>
+              </div>
+              <div class="product-card__body">
+                <h3>Coming Soon</h3>
+                <p>
+                  Coming Soon
+                </p>
+                <div class="product-card__foot">
+                  <span class="product-card__price">Rp 999.999</span>
+                  <a
+                    href="/blank.html"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn--sm btn--primary"
+                    data-ripple
+                    >Don't Click</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Contact ===== -->
+      <section class="section section--alt" id="contact">
+        <div class="container">
+          <div class="section__head" data-reveal="fade-up">
+            <span class="section__tag">Contact</span>
+            <h2 class="section__title">
+              Let's work <span class="text-gradient">together</span>
+            </h2>
+            <p class="section__sub">
+              Have a project in mind? Send me a message — it goes straight to my
+              WhatsApp.
+            </p>
+          </div>
+          <div class="contact__grid">
+            <div class="contact__info" data-reveal="fade-right">
+              <a
+                class="card contact__item"
+                href="https://wa.me/6283134708667"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="contact__icon" style="--cc: #25d366"
+                  ><svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.1 14.9l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 0 1 12 4zm-3.1 4.3c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.9 4.5 3.9 2.2.9 2.7.7 3.2.7.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.1-.2 0-.4.1-.5l.5-.6c.1-.2.2-.3.3-.5v-.5L10.7 8.7c-.2-.4-.4-.4-.6-.4h-1.2z"
+                    /></svg
+                ></span>
+                <div>
+                  <strong>WhatsApp</strong><small>+62 831-3470-8667</small>
+                </div>
+              </a>
+              <a
+                class="card contact__item"
+                href="mailto:pazrialkatani8@gmail.com"
+              >
+                <span class="contact__icon" style="--cc: #2563eb"
+                  ><svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="2.5" y="4.5" width="19" height="15" rx="3" />
+                    <path d="m3.5 6.5 8.5 6.5 8.5-6.5" /></svg
+                ></span>
+                <div>
+                  <strong>Email</strong><small>pazrialkatani8@gmail.com</small>
+                </div>
+              </a>
+              <a
+                class="card contact__item"
+                href="https://github.com/Guava-ui"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="contact__icon" style="--cc: #0f172a"
+                  ><svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"
+                    /></svg
+                ></span>
+                <div>
+                  <strong>GitHub</strong><small>github.com/Guava-ui</small>
+                </div>
+              </a>
+              <a
+                class="card contact__item"
+                href="https://www.linkedin.com/in/pazri-alkatani-75a1882ba/"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="contact__icon" style="--cc: #0a66c2"
+                  ><svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M4.98 3.5A2.49 2.49 0 1 1 0 3.5a2.49 2.49 0 0 1 4.98 0zM.4 8.4h4.6V24H.4V8.4zM8.4 8.4h4.4v2.13h.06c.61-1.16 2.11-2.38 4.35-2.38 4.65 0 5.51 3.06 5.51 7.04V24h-4.6v-7.72c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.07V24H8.4V8.4z"
+                    /></svg
+                ></span>
+                <div>
+                  <strong>LinkedIn</strong
+                  ><small>linkedin.com/in/pazri-alkatani</small>
+                </div>
+              </a>
+              <a
+                class="card contact__item"
+                href="https://www.instagram.com/alkatani.pazri/"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="contact__icon" style="--cc: #e4405f"
+                  ><svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+                    <circle cx="12" cy="12" r="4.5" />
+                    <circle
+                      cx="17.6"
+                      cy="6.4"
+                      r="1.3"
+                      fill="currentColor"
+                      stroke="none"
+                    /></svg
+                ></span>
+                <div>
+                  <strong>Instagram</strong><small>@alkatani.pazri</small>
+                </div>
+              </a>
+            </div>
+            <form
+              class="card contact__form"
+              id="contactForm"
+              data-reveal="fade-left"
+              novalidate
+            >
+              <div class="form-group">
+                <label for="fName">Name</label>
+                <input
+                  type="text"
+                  id="fName"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="fEmail">Email</label>
+                <input
+                  type="email"
+                  id="fEmail"
+                  name="email"
+                  placeholder="you@email.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="fMsg">Message</label>
+                <textarea
+                  id="fMsg"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me about your project..."
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="btn btn--primary btn--full"
+                data-ripple
+              >
+                Send Message
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m22 2-11 11M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+              </button>
+              <p class="contact__note">
+                Your message will open WhatsApp with an auto-formatted text.
+              </p>
+            </form>
+          </div>
         </div>
       </section>
     </main>
 
+    <!-- ===== Footer ===== -->
     <footer class="footer">
-      <div class="media">
-        <a href="https://github.com/Guava-ui" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.instagram.com/alkatani.pazri?igsh=ZG00Nm1tcG85amZw" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://Wa.me/6283134708667" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="https://mail.google.com/mail/?view=cm&to=pazriunpam@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <a href="#home" class="navbar__logo">
+            <span class="navbar__logo-mark">P</span>
+            <span class="navbar__logo-text footer__logo-text"
+              >Pazri<span> Alkatani</span></span
+            >
+          </a>
+          <p>
+            Full Stack Web Developer crafting clean, fast and useful digital
+            experiences.
+          </p>
+        </div>
+        <nav class="footer__links" aria-label="Quick links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__links" aria-label="More links">
+          <h4>More</h4>
+          <ul>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <a href="/CV/MyCV.pdf" download
+                >Download CV</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="footer__social">
+          <h4>Social Media</h4>
+          <div class="footer__social-row">
+            <a
+              href="https://github.com/Guava-ui"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"
+                /></svg
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/pazri-alkatani-75a1882ba/"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M4.98 3.5A2.49 2.49 0 1 1 0 3.5a2.49 2.49 0 0 1 4.98 0zM.4 8.4h4.6V24H.4V8.4zM8.4 8.4h4.4v2.13h.06c.61-1.16 2.11-2.38 4.35-2.38 4.65 0 5.51 3.06 5.51 7.04V24h-4.6v-7.72c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.07V24H8.4V8.4z"
+                /></svg
+            ></a>
+            <a
+              href="https://www.instagram.com/alkatani.pazri/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+                <circle cx="12" cy="12" r="4.5" />
+                <circle
+                  cx="17.6"
+                  cy="6.4"
+                  r="1.3"
+                  fill="currentColor"
+                  stroke="none"
+                /></svg
+            ></a>
+            <a
+              href="https://wa.me/6283134708667"
+              target="_blank"
+              rel="noopener"
+              aria-label="WhatsApp"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.1 14.9l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 0 1 12 4zm-3.1 4.3c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.9 4.5 3.9 2.2.9 2.7.7 3.2.7.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.1-.2 0-.4.1-.5l.5-.6c.1-.2.2-.3.3-.5v-.5L10.7 8.7c-.2-.4-.4-.4-.6-.4h-1.2z"
+                /></svg
+            ></a>
+          </div>
+        </div>
       </div>
-      <div class="text">
-        <p>&copy 2025 | <span>Pazri Alkatani</span></p>
+      <div class="footer__bottom">
+        <p>
+          © <span id="year">2025</span> Pazri Alkatani. All rights reserved.
+          Built with HTML, CSS &amp; Vanilla JS.
+        </p>
       </div>
     </footer>
 
-    <!-- Loading Screen -->
-    <div id="loader">
-      <img src="loading.gif" alt="Loading..." />
+    <!-- ===== Certificate Modal ===== -->
+    <div
+      class="modal"
+      id="certModal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Certificate preview"
+      hidden
+    >
+      <div class="modal__backdrop" data-modal-close></div>
+      <figure class="modal__content">
+        <button
+          class="modal__close"
+          data-modal-close
+          aria-label="Close preview"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+          >
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+        <img src="" alt="Certificate preview" id="modalImg" />
+        <figcaption id="modalCaption"></figcaption>
+      </figure>
     </div>
 
+    <!-- ===== Back To Top ===== -->
+    <button class="back-top" id="backTop" aria-label="Back to top">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M12 19V5m-6 6 6-6 6 6" />
+      </svg>
+    </button>
 
-    <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/de725b875e.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
