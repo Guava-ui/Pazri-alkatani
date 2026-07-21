@@ -390,7 +390,7 @@ const CertModal = (() => {
 /* ---------------- Contact form → WhatsApp ---------------- */
 const ContactForm = (() => {
   const form = document.getElementById("contactForm");
-  const PHONE = "6281234567890";
+  const PHONE = "6283134708667";
 
   const init = () => {
     if (!form) return;
@@ -411,7 +411,7 @@ const ContactForm = (() => {
       if (!valid) return;
 
       const text =
-        "Halo Pazri! 👋%0A%0A" +
+        "Halo Pazri! %0A%0A" +
         "*Nama:* " +
         encodeURIComponent(name) +
         "%0A" +
